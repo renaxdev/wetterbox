@@ -4,7 +4,7 @@
  Author:	    Maximilian Körner <maximiliankoerner07@outlook.de>
 
 */
-
+//Libs
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h>
@@ -84,6 +84,7 @@ void setup() {
     }
   }
 	
+//Sending data to Telegram Account	
   bot.sendMessage(CHAT_ID, "Die Außentemperatur beträgt: " + String(temp) + "°C" + "    Die Feuchtigkeit beträgt: " + String(feuchte) + "%" + "    Akkuladung: " + String(perc)+ "%");
   delay(500);
   Serial.println("Done sending Data");
