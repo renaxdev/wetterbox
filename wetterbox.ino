@@ -1,7 +1,7 @@
 /*
- Name:		    TelegramSensorReader.ino
- Created:	    17/11/2020
- Author:	    Maximilian Körner <renaxbtw@gmail.com>
+ Name:		    WetterBox
+ Created:	    28/06/2021
+ Author:	    Maximilian Körner <maximiliankoerner07@outlook.de>
 
 */
 
@@ -15,8 +15,8 @@
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
-String ssid  = "WLAN";
-String pass  = "lechpoznanarkagdynai";
+String ssid  = "---ENTER WLAN NAME---";
+String pass  = "---ENTER PASS---";
 String token = "1274351176:AAFPJMEuvR8IY766z8axHXZNOxpgd1s7Aqg"; 
 #define CHAT_ID "1005410886"
 
