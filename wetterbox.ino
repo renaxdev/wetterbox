@@ -17,19 +17,18 @@ DHT dht(DHTPIN, DHTTYPE);
 
 String ssid  = "---ENTER WLAN NAME---";
 String pass  = "---ENTER PASS---";
-String token = "1274351176:AAFPJMEuvR8IY766z8axHXZNOxpgd1s7Aqg"; 
-#define CHAT_ID "1005410886"
+String token = "---ENTER TELEGRAM BOT TOKEN"; 
+#define CHAT_ID "--- ENTER CHAT ID"
 
 X509List cert(TELEGRAM_CERTIFICATE_ROOT);
 WiFiClientSecure secured_client;
 UniversalTelegramBot bot(token, secured_client);
 
 void setup() {
-
-	Serial.begin(115200);
-	Serial.println("Starting TelegramBot...");
-  
-	WiFi.begin(ssid, pass);
+  Serial.begin(115200);
+  Serial.println("Starting Telegram Bot...");
+// Connect to Network
+  WiFi.begin(ssid, pass);
   secured_client.setTrustAnchors(&cert);
 
   while (WiFi.status() != WL_CONNECTED)
@@ -40,20 +39,15 @@ void setup() {
   Serial.print("\nWiFi connected. IP address: ");
   Serial.println(WiFi.localIP());
   
-  dht.begin();
+// Sensor Readings
+  dht.begin();	
   delay(2000);
   float temp = dht.readTemperature();
-  Serial.print("Temperatur gelesen:" + String(temp));
-  Serial.print("°C");
-  Serial.println(" ");
   float feuchte = dht.readHumidity();
-  Serial.print("Feuchtigkeit gelesen:");
-  Serial.print(feuchte);
-  Serial.print(" %");
-  Serial.println(" ");
+	
+// Battery Voltage Measuring
   int nVoltageRaw = analogRead(A0);
   float fVoltage = (float)nVoltageRaw * 0.00486;
-
   float fVoltageMatrix[22][2] = {
     {4.2,  100},
     {4.15, 95},
@@ -89,7 +83,7 @@ void setup() {
       break;
     }
   }
-  Serial.println("Die Temperatur beträgt: " + String(temp) + "°C" + " Die Feuchtigkeit beträgt: " + String(feuchte) + "%");
+	
   bot.sendMessage(CHAT_ID, "Die Außentemperatur beträgt: " + String(temp) + "°C" + "    Die Feuchtigkeit beträgt: " + String(feuchte) + "%" + "    Akkuladung: " + String(perc)+ "%");
   delay(500);
   Serial.println("Done sending Data");
