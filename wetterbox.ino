@@ -2,6 +2,7 @@
  Name:		    WetterBox
  Created:	    28/06/2021
  Author:	    Maximilian Körner <maximiliankoerner07@outlook.de>
+ License: 	    Apache License 2.0
 
 */
 //Libs
