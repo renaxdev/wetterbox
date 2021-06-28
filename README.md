@@ -12,3 +12,6 @@ Die Wetterbox verschickt alle 30min aktuelle Wetterdaten des Sensors per Telegra
 - Telegram Bot Token muss hinterlegt werden
 - Chat ID muss hinterlegt werden
 - Optional: Zeit des DeepSleeps kann geändert werden
+
+### Support:
+- Bei Fragen etc kannst du mir gerne bei Discord schreiben: Renax#6191
