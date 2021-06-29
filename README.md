@@ -20,3 +20,5 @@ Die Wetterbox verschickt alle 30min aktuelle Wetterdaten des Sensors per Telegra
 
 ### Support:
 - Bei Fragen etc kannst du mir gerne bei Discord schreiben: Renax#6191
+
+## Danke fürs vorbeischauen!
